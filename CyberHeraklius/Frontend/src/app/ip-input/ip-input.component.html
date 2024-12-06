@@ -1,0 +1,22 @@
+<hr />
+<div style="text-align:left">
+  <h2>Network Port Scanner</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label for="projectID">Project ID:</label>
+    <!--<input type="text" id="projectID" [(ngModel)]="projectID" name="projectID" value="1" size="5" required> &nbsp;-->
+    <input type="text" id="projectID" [(ngModel)]="projectID" name="projectID" size="5" required> &nbsp;
+    <label for="componentID">Component ID:</label>
+    <input type="text" id="componentID" [(ngModel)]="componentID" name="componentID" size="5" required> &nbsp;
+    <label for="ip">IP Address:</label>
+    <input type="text" id="ip" [(ngModel)]="ip" name="ip" size="15" required> &nbsp;
+    <label for="portRange">Port Range (e.g., 0-65535):</label>
+    <input type="text" id="portRange" [(ngModel)]="portRange" name="portRange" size="11" required> &nbsp;
+    <button [class.spinner]="isLoading" [disabled]="isLoading" type="submit">New Scan</button>
+    <div *ngIf="isLoading"> &nbsp; Processing...</div>
+  </form>
+  
+  <div *ngIf="response">
+    <h2>Response</h2>
+    <pre>{{ response | json }}</pre>
+  </div>
+</div>

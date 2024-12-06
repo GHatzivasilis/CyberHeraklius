@@ -1,0 +1,21 @@
+<hr />
+<div style="text-align:left">
+  <h2>Select Project</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label for="projectID">Project ID:</label>
+    <input type="text" id="projectID" [(ngModel)]="projectID" name="projectID" value="1" size="5" required> &nbsp;
+    <input type="text" id="componentID" [(ngModel)]="componentID" name="componentID" value="1" size="5" required> &nbsp;
+    <button type="submit">View Data</button>
+  </form>
+</div>
+
+<br><br><br><br>
+
+<div style="text-align:left">
+  <h3>Legal Note</h3>
+  <section>
+    <p>Welcome to the SecOPERA Penetration Testing Toolkit, a powerful penetration testing tool designed to help you identify security vulnerabilities in your infrastructure. Our tool is built with the highest ethical standards in mind, empowering security professionals to conduct thorough security assessments and enhance the resilience of their systems against potential threats. It is essential to use <strong>SecOPERA Penetration Testing Toolkit</strong> responsibly and only for lawful purposes, ensuring that your testing activities are conducted on infrastructure that you own or have explicit permission to assess.</p>
+
+    <p>We strongly emphasize the importance of ethical hacking practices. Unauthorized use of <strong>SecOPERA Penetration Testing Toolkit</strong> on systems or networks that you do not own or control is strictly prohibited and illegal. By using this tool, you agree to adhere to all applicable laws and regulations and commit to using it solely for the purpose of improving security. Our mission is to support the cybersecurity community in building stronger defenses, and we urge all users to respect these principles as they work to secure their own environments.</p>
+  </section>
+</div>

@@ -1,0 +1,38 @@
+<body>
+<hr />
+<button (click)="navigateToNetworkView()">Back to Network View</button>
+<div *ngIf="node_data">
+  <h3>Network Data for Project {{ node_data.projectID }} and Component {{ node_data.componentID }}</h3>
+  <h3>Node: {{ node_data.IP }}</h3>
+  <table>
+    <thead><tr>
+      <th bgcolor="#33FFD4">Port</th>
+      <th bgcolor="#33FFD4">State</th>
+      <th bgcolor="#33FFD4">Name</th>
+      <th bgcolor="#33FFD4">Protocol</th>
+      <th bgcolor="#33FFD4">Product</th>
+      <th bgcolor="#33FFD4">Version</th>
+      <th bgcolor="#33FFD4">Extrainfo</th>
+      <th bgcolor="#33FFD4">CPE</th>
+      <th bgcolor="#3d85e1">Update details</th>
+    </tr></thead>
+    <tbody><tr *ngFor="let result of node_data.results; let i = index">
+      <td bgcolor="#ffffff">{{ result[0] }}</td>
+      <td bgcolor="#ffffff">{{ result[1] }}</td>
+      <td bgcolor="#ffffff"><input type="text" size="10" [(ngModel)]="node_data.results[i][2]" placeholder=""></td>
+      <td bgcolor="#ffffff">{{ result[3] }}</td>
+      <td bgcolor="#ffffff"><input type="text" size="10" [(ngModel)]="node_data.results[i][4]" placeholder=""></td>
+      <td bgcolor="#ffffff"><input type="text" size="10" [(ngModel)]="node_data.results[i][5]" placeholder=""></td>
+      <td bgcolor="#ffffff">{{ result[6] }}</td>
+      <td bgcolor="#ffffff"><input type="text" size="10" [(ngModel)]="node_data.results[i][7]" placeholder=""></td>
+      <td bgcolor="#f6f4c9"><button (click)="updateNode(i)">Update</button></td>
+      <td bgcolor="#f6f4c9"><button [class.spinner]="isLoading" [disabled]="isLoading" (click)="ctiSearch(i)">CTI search</button></td>
+      <div *ngIf="isLoading"> &nbsp; Processing...</div>
+    </tr></tbody>
+  </table>
+</div>
+<div *ngIf="!node_data">
+	<i>No available data for this node</i>
+</div>
+<hr />
+</body>

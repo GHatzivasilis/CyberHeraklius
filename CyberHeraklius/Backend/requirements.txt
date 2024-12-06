@@ -1,0 +1,7 @@
+Flask==3.0.3
+python-nmap==0.7.1
+pymetasploit3==1.0.5
+pymssql==2.2.11
+PyMySQL==1.1.0
+mysql-connector-python==8.3.0
+pyOpenSSL==24.0.0

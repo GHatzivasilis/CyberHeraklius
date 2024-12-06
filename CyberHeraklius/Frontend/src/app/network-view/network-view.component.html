@@ -1,0 +1,79 @@
+<hr />
+<!--<button (click)="navigateToNodeView(data.projectID,"IP")">Go to Node Page</button>-->
+<!--<a [routerLink]="['/node-view', data.projectID]">Go to Node Page</a>-->
+<h3>Network Data for Project-{{ projectID }} and Component-{{ componentID }}</h3>
+<div class="charts-container">
+    <div class="card">
+    	<div class="card-body">
+    	    <h4>Risk</h4>
+	    <p id="rcorners"> {{ risk }} </p>
+	</div>
+    </div>
+    <div class="card">
+    	<div class="card-body">
+    	    <h4>Assessment</h4>
+    	    <!--<<div echarts [options]="chartOption" class="echart-container"></div>-->
+    	    <!--<<div echarts [options]="chartOption" class="echart-container"></div>-->
+	    <div id="assessment_chart" style="width: 300px;height: 300px;"></div>
+	</div>
+    </div>
+    <div class="vl"></div>
+<!--</div>
+
+<div class="charts-container">-->
+    <div class="card">
+    	<div class="card-body">
+    	    <h4>Number of Nodes</h4>
+	    <div class="numberCircle"> {{ totalnodes }} </div>
+	</div>
+	<!--<div class="card-body">
+    	    <h4>Total number of Nodes</h4>
+	    <div class="numberCircle"> {{ totalnodes }} </div>
+	</div>-->
+    </div>
+    <div class="card">
+    	<div class="card-body">
+    	    <h4>Ports status</h4>
+    	    <!--<<div echarts [options]="chartOption" class="echart-container"></div>-->
+    	    <!--<<div echarts [options]="chartOption" class="echart-container"></div>-->
+	    <div id="main" style="width: 300px;height: 300px;"></div>
+	</div>
+    </div>
+</div>
+
+<app-ip-input></app-ip-input>
+<hr />
+<div *ngIf="data">
+  <h3>Nodes</h3>
+  <table>
+    <thead><tr>
+      <th bgcolor="#339FFF">Timestamp</th>
+      <th bgcolor="#339FFF">IP Address</th>
+      <th bgcolor="#339FFF">Host Name</th>
+      <th bgcolor="#339FFF">Status</th>
+      <th bgcolor="#339FFF">Ports</th>
+      <th bgcolor="#339FFF">Ports number</th>
+      <th bgcolor="#33FFD4">Node details</th>
+    </tr></thead>
+    <tbody><tr *ngFor="let result of data.results; let i = index">
+      <td>{{ result[0] }}</td>
+      <td>{{ result[1] }}</td>
+      <td>{{ result[2] }}</td>
+      <td>{{ result[3] }}</td>
+      <td>{{ result[4] }}</td>
+      <td>{{ result[5] }}</td>
+      <td><button (click)="navigateToNodeView(data.projectID, result[1])">View</button></td>
+      <td bgcolor="#f6f4c9"><button [class.spinner]="isLoading" [disabled]="isLoading" (click)="netAssessment(i)">Assessment</button></td>
+      <div *ngIf="isLoading"> &nbsp; Processing...</div>
+    </tr></tbody>
+  </table>
+</div>
+<div *ngIf="!data">
+	<i>No available data</i>
+</div>
+<hr />
+<app-exploit-view></app-exploit-view>
+<button (click)="navigateToHomePage()">Go Back (Project Selection)</button>
+<hr />
+
+
