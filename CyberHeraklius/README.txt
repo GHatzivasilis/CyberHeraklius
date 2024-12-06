@@ -1,9 +1,3 @@
-
-	==== SecOPERA - Network and Cross Layer penetration testing ====
-			-- Description --
-The Penetration Testing Toolkit performs the main SecOPERA assessments of this cross-layer analysis. At first, the user can perform network mapping in order to identify the elements that are deployed in the network and gather public CTI for known security problems (CVEs, CWEs, CAPECs, and Metasploit exploits). Thereupon, the user can execute a series of automated assessment tests, examining wherever the identified components/assets are vulnerable to: i) port scanning, ii) Denial of Service (DoS) attacks, iii) login cracking, or iv) weak cryptographic options. 
-
-
 			-- Deployment Instrucitons --
 1.For the deployment of the Network and Cross Layer penetration testing,
 we need a native instalation of MariaDB in the host device. Here, are the
